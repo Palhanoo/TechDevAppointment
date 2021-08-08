@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import { StyleSheet } from 'react-native';
 
 //exportando os components
 export const Container = styled.SafeAreaView`

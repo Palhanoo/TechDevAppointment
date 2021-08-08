@@ -1,8 +1,10 @@
 import React, { useEffect, useContext} from 'react';
-import { Container, LoadingIcon } from './styles';
+import { LoadingIcon } from './styles';
 import AsyncStorage from '@react-native-community/async-storage';
 import { useNavigation } from '@react-navigation/native';
 
+
+import Container from '../../Components/Container';
 import { UserContext } from '../../contexts/UserContext';
 
 import Api from '../../Api';
@@ -56,7 +58,7 @@ export default () => {
     return (
         <Container>
             <PreLoader />
-            <LoadingIcon size="large" color="#FF7F00"/>
+            <LoadingIcon size="large" color="#555"/>
         </Container>
     )
 }

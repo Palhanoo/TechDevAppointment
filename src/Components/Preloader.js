@@ -4,8 +4,8 @@ import { Image } from 'react-native';
 function PreLoader() {
     return (
         <Image 
-            style={{width:250, height:250}}
-            source={require('../assets/naruto.sasuke.jpg')}
+            style={{width:150, height:150}}
+            source={require('../assets/developer.png')}
         />
     );
 }
