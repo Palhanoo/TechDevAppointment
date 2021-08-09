@@ -4,12 +4,12 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 
 const Container = ({children}) => {
     return (
-        <LinearGradient
-            colors={['#222', '#333', '#555']}
+        <LinearGradient 
+            colors={['#a4d8ec', '#cdcdf2', '#f2c4d6']}
             style={styles.gradient}
         >
             <SafeAreaView style={styles.container}>{children}</SafeAreaView>
-        </LinearGradient>
+        </LinearGradient>    
     )
 }
 

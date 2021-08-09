@@ -16,8 +16,8 @@ import {
 
 import Api from '../../Api';
 
-import Vegeta from '../../Components/Vegeta';
-//import BarberLogo from '../../assets/barber.svg';
+//import Vegeta from '../../Components/Vegeta';
+import BarberLogo from '../../assets/barber.svg';
 import EmailIcon from '../../assets/email.svg';
 import LockIcon from '../../assets/lock.svg';
 
@@ -73,7 +73,7 @@ export default () => {
     
     return (
         <Container>
-            <Vegeta />
+            <BarberLogo />
 
             <InputArea>
             <SignInput 
