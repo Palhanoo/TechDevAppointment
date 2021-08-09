@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-//import Container from '../../Components/Container';
-import { Container } from './styles';
+import Container from '../../Components/Container';
+//import { Container } from './styles';
 
 export default () => {
     return (

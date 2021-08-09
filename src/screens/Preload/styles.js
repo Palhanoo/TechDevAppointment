@@ -10,5 +10,5 @@ export const Container = styled.SafeAreaView`
     align-items: center;
 `;
 export const LoadingIcon = styled.ActivityIndicator`
-
+    padding: 50px;
 `;

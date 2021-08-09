@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 
     //importando o customTabBar enviando todas as props
 export default () => (
-    <Tab.Navigator tabBar={props=><CustomTabBar {...props} />}>
+    <Tab.Navigator screenOptions={{headerShown:false}} tabBar={props=><CustomTabBar {...props} />}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Search" component={Search} />
         <Tab.Screen name="Appointments" component={Appointments} />
