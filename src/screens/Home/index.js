@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 //pra saber onde está rodando
-import { Platform, ActivityIndicator, StyleSheet } from 'react-native';
+import { Platform, ActivityIndicator, StyleSheet, RefreshControl } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 //a biblioteca que pede permissões
@@ -52,6 +52,9 @@ export default () => {
     const [loading, setLoading] = useState(false);
     //lista dos barbeiros
     const [list, setList] = useState([])
+    //do refresh control
+    const [refreshing, setRefreshing] = useState(false);
+
 
     const handleLocationFinder = async () => {
         setCoords(null);
@@ -105,6 +108,7 @@ export default () => {
 
             setList(res.data);
         } else {
+            //mostrar o erro
             alert("Erro: "+res.error);
         }
 
@@ -114,9 +118,18 @@ export default () => {
     useEffect(()=>{
         getBarbers();
     }, []);
+
+    const onRefresh = () => {
+        setRefreshing(false);
+        //simplesmente roda a função de pegar os .. novamente
+        getBarbers();
+    }
+
     return (
         <Container>
-            <Scroller>
+            <Scroller refreshControl={
+                <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+            }>
 
                 <HeaderArea>
                     <HeaderTitle numberOfLines={2}>Encontre o seu programador favorito</HeaderTitle>
