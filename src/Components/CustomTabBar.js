@@ -33,8 +33,8 @@ const TabItemCenter = styled.TouchableOpacity`
 `;
 const AvatarIcon = styled.Image`
     width: 24px;
-    height: 24px;
-    border-radius 12px;
+    height:24px;
+    border-radius: 12px;
 `;
 
 export default ({state, navigation}) => {

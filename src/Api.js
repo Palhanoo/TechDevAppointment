@@ -1,3 +1,6 @@
+//pra pegar o token precisa do async
+import AsyncStorage from '@react-native-community/async-storage';
+
 const BASE_API = 'https://api.b7web.com.br/devbarber/api';
 
 export default {
@@ -61,6 +64,16 @@ export default {
         //transformando a resposta em um json
         const json = await req.json();
         //retornando a requisição
+        return json;
+    },//action pra pegar os barbeiros
+    getBarbers: async () => {
+        //pegando o token
+        const token = await AsyncStorage.getItem('token');
+        //depois de logado sempre mandar o token junto
+        const req = await fetch(`${BASE_API}/barbers?token=${token}`);
+        //pegando o resultado da requisição
+        const json = await req.json();
+        //retornando o resultado
         return json;
     }
 }; 
