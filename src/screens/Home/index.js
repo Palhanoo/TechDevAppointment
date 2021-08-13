@@ -96,9 +96,20 @@ export default () => {
         setLoading(true);
         setList([]);
 
-        //pegando o resultado e setando em set
-        let res = await Api.getBarbers();
-        console.log(res)
+        //passar como parametro pra api
+        let lat = null;
+        let lng = null;
+
+        //se coords existe
+        if(coords) {
+            //pegando as coordenadas e setando no lat e lng
+            lat = coords.latitude;
+            lng = coords.longitude;
+        }
+
+        //pegando o resultado e setando em set   passando como parametro na api (lat e lng) | locationtext = o que ta digitado la na barra
+        let res = await Api.getBarbers(lat, lng, locationText) ;
+       // console.log(res)
         if(res.error == '') {
             //se tem o location
             if(res.loc) {
@@ -125,6 +136,10 @@ export default () => {
         getBarbers();
     }
 
+    const handleLocationSearch = () => {
+        setCoords({});
+        getBarbers();
+    }
     return (
         <Container>
             <Scroller refreshControl={
@@ -144,6 +159,7 @@ export default () => {
                         placeholderTextColor="#FFF" 
                         value={locationText}
                         onChangeText={t=>setLocationText(t)}
+                        onEndEditing={handleLocationSearch}
                         />
                     <LocationFinder onPress={handleLocationFinder}>
                         <MyLocationIcon width="24" height="24" fill="#FFF" />

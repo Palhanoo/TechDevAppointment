@@ -65,12 +65,18 @@ export default {
         const json = await req.json();
         //retornando a requisição
         return json;
-    },//action pra pegar os barbeiros
-    getBarbers: async () => {
+    },
+//action pra pegar os barbeiros|além de pegar o lat e lng
+    getBarbers: async (lat=null, lng=null, address=null) => {
         //pegando o token
         const token = await AsyncStorage.getItem('token');
-        //depois de logado sempre mandar o token junto
-        const req = await fetch(`${BASE_API}/barbers?token=${token}`);
+
+        console.log("LAT", lat);
+        console.log("LNG", lng);
+        console.log("Address", address)
+
+        //depois de logado sempre mandar o token junto | pegndo a latitude e longitude, dessa requisição específica (de outras utilizaria outros dados que queira pegar)
+        const req = await fetch(`${BASE_API}/barbers?token=${token}&lat=${lat}&lng=${lng}&addres=${address}`);
         //pegando o resultado da requisição
         const json = await req.json();
         //retornando o resultado

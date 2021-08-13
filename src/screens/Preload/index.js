@@ -9,6 +9,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import Api from '../../Api';
 
+//import Vegeta from '../../Components/Vegeta';
 //import PreLoader from '../../Components/Preloader';
 import BarberLogo from '../../assets/barber.svg';
 
@@ -57,7 +58,9 @@ export default () => {
 
     return (
         <Container>
-            <BarberLogo width="100%" height="160"/>
+            <BarberLogo
+            width="100%" height="160"
+            />
             <LoadingIcon size="large" color="#555"/>
         </Container>
     )

@@ -13,7 +13,7 @@ import Profile from '../screens/Profile';
 const Tab = createBottomTabNavigator();
 
 
-    //importando o customTabBar enviando todas as props
+                                                //importando o customTabBar enviando todas as props
 export default () => (
     <Tab.Navigator screenOptions={{headerShown:false}} tabBar={props=><CustomTabBar {...props} />}>
         <Tab.Screen name="Home" component={Home} />
