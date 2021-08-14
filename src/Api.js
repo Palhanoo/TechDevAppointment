@@ -66,14 +66,34 @@ export default {
         //retornando a requisição
         return json;
     },
+    logout: async () => {
+        //pegando o token
+        const token = await AsyncStorage.getItem('token');
+        //criando a requisição a API online
+        const req = await fetch(`${BASE_API}/auth/logout`, {
+            method: 'POST',
+            headers:{
+                //dizendo que aceita e que vai mandar conteudo em json
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            //enviando o token pra api, invalidando o token
+            body: JSON.stringify({token})
+        });
+        console.log("BODY", JSON.stringify({token}))
+        //transformando a resposta em um json
+        const json = await req.json();
+        //retornando a requisição
+        return json;
+    },    
 //action pra pegar os barbeiros|além de pegar o lat e lng
     getBarbers: async (lat=null, lng=null, address=null) => {
         //pegando o token
         const token = await AsyncStorage.getItem('token');
 
-        console.log("LAT", lat);
-        console.log("LNG", lng);
-        console.log("Address", address)
+        //console.log("LAT", lat);
+        //console.log("LNG", lng);
+        //console.log("Address", address)
 
         //depois de logado sempre mandar o token junto | pegndo a latitude e longitude, dessa requisição específica (de outras utilizaria outros dados que queira pegar)
         const req = await fetch(`${BASE_API}/barbers?token=${token}&lat=${lat}&lng=${lng}&addres=${address}`);
@@ -81,5 +101,8 @@ export default {
         const json = await req.json();
         //retornando o resultado
         return json;
+    },
+    getBarber: async (id) => {
+        
     }
 }; 

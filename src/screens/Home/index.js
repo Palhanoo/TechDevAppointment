@@ -109,7 +109,8 @@ export default () => {
 
         //pegando o resultado e setando em set   passando como parametro na api (lat e lng) | locationtext = o que ta digitado la na barra
         let res = await Api.getBarbers(lat, lng, locationText) ;
-       // console.log(res)
+
+        //console.log(res) a resposta recebida pela api, ou seja "data", que são as informações dos barbeiros
         if(res.error == '') {
             //se tem o location
             if(res.loc) {

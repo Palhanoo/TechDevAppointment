@@ -14,7 +14,7 @@ import Api from '../../Api';
 import BarberLogo from '../../assets/barber.svg';
 
 export default () => {
-
+    //usando o dispatch para colocar as informações no usercontext
     const { dispatch: userDispatch } = useContext(UserContext);
     const navigation = useNavigation();
 
@@ -30,9 +30,10 @@ export default () => {
                         //salvando o token no async storage
                         await AsyncStorage.setItem('token', res.token)
 
-                        //salvar no context pra enviar a informação no setavatar, que foi setado no reducer
+                        //salvando no context pra enviar a informação do setavatar, que foi setado no reducer
                         userDispatch({
                             type: 'setAvatar',
+                            //payload é a propriedade que ta segurando a informação atual no redux
                             payload:{
                                 avatar: res.data.avatar
                             }
